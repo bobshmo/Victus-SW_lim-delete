@@ -103,6 +103,8 @@ NVIDIA / VBIOS maximum = 115 W
 PCF ACMaxGPULimit      = 100 W
 ```
 
+If raising the PCF limits causes crashes or instability on your laptop, consider using **mVolt+** or **Hydra** to limit GPU voltage. Reducing voltage can help control power/thermal spikes and may improve stability while retaining the higher PCF power ceiling.
+
 ## Warning
 
 These values were tested on one specific HP Victus RTX 5060 configuration. Do not blindly copy them to another laptop or GPU. Verify your own VBIOS/NVIDIA maximum, cooling capability, AC adapter, PCF layout, and original PCF values first.
