@@ -49,6 +49,38 @@ At 140 W platform TargetTPP, actual GPU draw already exceeded the old 100 W wall
 
 `ACTargetTPPLimit = 150 W` does **not** mean the GPU is being commanded to consume 150 W. It is a platform/shared power target. The GPU-specific PCF maximum remains bounded to **115 W**, which is the maximum reported by this RTX 5060.
 
+## NVmobile Demuzzler GUI
+
+A GUI version is included for interactive tuning:
+
+[`NVmobile-Demuzzler.ps1`](./NVmobile-Demuzzler.ps1)
+
+Optional elevated launcher:
+
+[`Launch-NVmobile-Demuzzler.bat`](./Launch-NVmobile-Demuzzler.bat)
+
+The GUI provides user-editable fields for:
+
+- **PLGPU**: 0–255 W
+- **Target TPP**: 100–180 W
+
+It keeps the GPU-specific PCF maximum fixed at **115 W** and includes:
+
+- **Apply**
+- **Status**
+- **Restore Stock**
+- **71 W PLGPU / 180 W TPP preset**
+
+Restore Stock returns the tested machine to:
+
+```text
+PLGPU          = 35 W
+TargetTPP      = 125 W
+ACMaxGPULimit  = 100 W
+```
+
+Run the BAT with both files in the same directory, or launch the PowerShell GUI as Administrator. The first run requires the **.NET 8+ SDK** so the local `LLT.NvAPIWrapper.Net` PCF helper can be built.
+
 ## Utility
 
 The included PowerShell utility applies the proven values, reads current PCF status, or restores the original limits:
